@@ -1,0 +1,75 @@
+.menuWrap,.simpleMenu{
+    padding: 24px 16px;
+    overflow-y: hidden;
+}
+.menuWrap:hover,.simpleMenu:hover{
+    overflow-y: auto;
+}
+div.menuItem{
+  
+    font-size: 16px;
+    border-radius: 8px;
+    line-height: 1.7;
+}
+div.subMenuItem{
+  
+    font-size: 15px;
+    border-radius: 8px;
+    line-height: 1.7;
+}
+
+.menuItemText{
+
+    overflow: hidden;
+    white-space: nowrap;
+    transition:width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.menuIcon{
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+}
+.menuItem .iconfont{
+    font-size: 1.1rem;
+}
+.menuIcon .iconfont{
+   transition:transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.subMenuItem .iconfont{
+    font-size: .5rem;
+}
+.selectMenu.subMenuItem .iconfont{
+   transform: scale(1.8);
+}
+.expendClass{
+    font-size: 12px;
+
+}
+.closeClass{
+    font-size: 12px;
+    transform: rotate(-90deg);
+   
+
+}
+
+
+.simpleMenu .expendClass,.simpleMenu .closeClass{
+    width: 0;
+    opacity: 0;
+
+}
+
+.simpleMenu .subMenuItem{
+    display: none;
+  
+}
+.simpleMenu .menuItemText{
+    width: 0;
+    opacity: 0;
+
+}
+
+
+

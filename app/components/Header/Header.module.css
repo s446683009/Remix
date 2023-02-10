@@ -1,0 +1,33 @@
+
+.headerWrap{
+    display: flex;
+   justify-content: space-between;
+   position: fixed;
+   top:0;
+   right: 0;
+   width: calc(100% - 280px);
+   margin-left:280px;
+   padding: 15px;
+   z-index: 1;
+   background: #fff;
+
+}
+.simpleWrap{
+   width: calc(100% - 72px);
+}
+
+.zoomWrap{
+
+   margin-left: calc(40Px+32px);
+}
+.Box{
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+}
+
+@media screen and (max-width:600px) {
+   .headerWrap,.simpleWrap{
+      width: 100%;
+   }
+}

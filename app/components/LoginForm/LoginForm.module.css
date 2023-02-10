@@ -1,0 +1,60 @@
+.loginForm{
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+.loginForm_title{
+
+    font-size: 38px;
+   
+    line-height: 2;
+
+}
+.loginForm_content{
+    padding: 24px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+
+}
+.errorMessage{
+    color: red;
+    font-size: 13px;
+}
+
+.passwdlink{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.loginMoreTip{
+    position: relative;
+    margin-top: 15px;
+    height: 25px;
+    border-top: 1px solid #ddd;
+    overflow-y: visible;
+}
+.loginMoreText{
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    background-color: #fff;
+    padding: 0px 5px;   
+
+}
+.loginItem {
+    text-align: center;
+}
+.loginItem i{
+    font-size: 30px;
+}

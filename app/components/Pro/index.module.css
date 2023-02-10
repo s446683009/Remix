@@ -1,0 +1,66 @@
+.iconBtn{
+    width: 40px;
+    height: 40px;
+}
+.notificationWrap{
+    width: 280px;
+    border-radius: 8px;
+}
+.useWrap{
+    min-width: 200px;
+    padding:5px 15px;
+    border-radius: 6px;
+
+}
+.useWrap .titleWrap .title{
+    font-size: 16px;
+}
+.titleWrap{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    padding-left: 12px;
+   
+}
+.ListWrap{
+    min-height: 200px;
+    max-height: 500px;
+    overflow-y: hidden;
+}
+.ListWrap:hover{
+    overflow-y: auto;
+}
+.notificationWrap .title{
+    font-size: 17px;
+}
+.notificationWrap .subTitle{
+    color: #bdbdbd;
+    font-size: 12px;
+}
+.userAvatar{
+    
+    width: 30px;
+    height: 30px;
+}
+
+.between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.notificationWrap .primaryTxt{
+    font-size: 14px;
+}
+.notificationWrap .subTxt{
+    font-size: 12.5px;
+    color:rgba(0, 0, 0, 0.6);
+}
+.notificationWrap .secondText{
+    font-size: 12.5px;
+}
+.notificationWrap .userItem{
+    padding:5px;
+   
+}

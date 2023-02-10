@@ -1,0 +1,16 @@
+.WCCard{
+    box-shadow:none;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    padding: 24px;
+}
+.WCtitle{
+    font-size: 22px;
+    font-weight: bold;
+}
+.HomeWrap{
+   padding-top: 24px;
+}

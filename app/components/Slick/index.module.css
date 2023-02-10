@@ -1,0 +1,38 @@
+.dotsClass{
+   top:10px;
+   left: 10px;
+   bottom: unset;
+   width: auto;
+}
+.slickWrap{
+    overflow: hidden;
+    border-radius: 16px;
+    height: 100%;
+    box-shadow: none;
+    position: relative;
+}
+
+.imageWrap,.imageWrap span,.imageWrap image{
+    height: 100%!important;
+
+}
+
+.slickArrow{
+    color: rgba(255, 255, 255, 0.336);
+    font-size: 13px;
+
+}
+.slickRightArrow{
+    transform: rotate(180deg);
+}
+
+.slickArrow:hover{
+    color: #fff;
+}
+.arrowWrap{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+
+}
