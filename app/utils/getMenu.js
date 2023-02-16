@@ -1,5 +1,10 @@
 const menus=[
-    
+    {
+        menuId:'1',
+        menuIcon:'',
+        menuName:'首页',
+        hasChildren:false,
+    },
     {
         menuId:'2',
         menuIcon:'',

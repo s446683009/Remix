@@ -60,7 +60,7 @@ const themeObj={[THEME_TEMPLATE_KEY.INDIGO]: {
             // Name of the slot
             root: {
               // Some CSS
-              fontFamily: '"Microsoft Yahei",verdana',
+           
               fontSize:'.85rem'
             },
           },

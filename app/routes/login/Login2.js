@@ -15,7 +15,6 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import styled from './Login.module.css'
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -80,7 +79,7 @@ export default function SignIn() {
     <Box component="span">
       <Box className={styled.imageBox}>
         <h3 className={styled.h3font}>Hi, Welcome Back</h3>
-        <img  src={require("../../public/images/login/bac1.jpg")} alt='language'/>
+        {/* <img  src={require("../../public/images/login/bac1.jpg")} alt='language'/> */}
       </Box>
       <Box
           className={styled.loginBox}

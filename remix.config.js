@@ -3,13 +3,13 @@
  */
 module.exports = {
   appDirectory: 'app',
-  browserBuildDirectory: 'public/build',
-  publicPath: '/build/',
-  serverBuildDirectory: 'build',
-  devServerPort: 8002,
+  // browserBuildDirectory: 'public/build',
+  // publicPath: '/build/',
+  // serverBuildDirectory: 'build',
+  // devServerPort: 8002,
   future: {
     v2_routeConvention: true,
     unstable_cssModules: true
   },
-  ignoredRouteFiles: ["**/.*", "**/*.css", "**/*.test.{js,jsx,ts,tsx}"],
+  ignoredRouteFiles: ["**/*.css", "**/*.test.{js,jsx,ts,tsx}"],
 };

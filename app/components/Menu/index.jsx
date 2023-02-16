@@ -5,7 +5,6 @@ import styled from './Menu.module.css';
 
 
 import menus from '../../utils/getMenu'
-import { style } from '@mui/system';
 
 const slectMenuSX={
     color:'primary.scr',
@@ -55,7 +54,7 @@ const mapList=(menu,options,leavel=1)=>{
 
 function CustomMenu({simapleMenu}) {
     const [selectMenuId, setselectMenuId] = useState('')
-    const [expendMenu, setExpendMenu] = useState([])
+    const [expendMenu, setExpendMenu] = useState(['2','5'])
  
     const handleOpen=useCallback((menuKey,e)=>{
             setExpendMenu((menu)=>{
@@ -79,6 +78,7 @@ function CustomMenu({simapleMenu}) {
                 handleOpen(menuId,e);
             }
             setselectMenuId(menuId)
+            
         },
         [handleOpen]
     )

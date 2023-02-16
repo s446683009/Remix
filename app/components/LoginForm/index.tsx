@@ -1,4 +1,4 @@
-"use client";
+
 import React, { useCallback, useState} from 'react'
 import PropTypes from 'prop-types'
 import styled from './LoginForm.module.css'
@@ -42,6 +42,7 @@ function LoginForm({size='normal',loginFun}:{size?:String,loginFun?:Function}) {
         用户登录
       </div>
       <div className={styled.loginForm_content}>
+        
             <Box>
             <TextField
               error={!!errorMessage}
