@@ -7,12 +7,22 @@ import ClientStyleContext from './components/ClientStyleContext';
 import {cssBundleHref} from '@remix-run/css-bundle';
 import iconfontCss from './styles/iconfont/iconfont.css'
 import globalCss from './styles/global.css'
+import { createHead } from 'remix-island';
+
 var theme=getTheme('');
 
 interface DocumentProps {
   children: React.ReactNode;
   title?: string;
 }
+
+export const Head = createHead(() => (
+    <>
+      <Meta />
+      <Links />
+    </>
+));
+  
 
 
 
@@ -51,31 +61,39 @@ const Document = withEmotionCache(({ children, title }: DocumentProps, emotionCa
   }, []);
 
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta name="theme-color" content={theme.palette.primary.main} />
+    <>
+         <Head />
+         <Outlet />
+          <ScrollRestoration />
+         <Scripts />
+         <LiveReload />
+        </>
+
+    // <html lang="en">
+    //   <head>
+    //     <meta charSet="utf-8" />
+    //     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    //     <meta name="theme-color" content={theme.palette.primary.main} />
        
-        {title ? <title>{title}</title> : null}
-        <Meta />
+    //     {title ? <title>{title}</title> : null}
+    //     <Meta />
       
-        {/* <l
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        /> */}
-        <Links />
-      </head>
+    //     {/* <l
+    //       rel="stylesheet"
+    //       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    //     /> */}
+    //     <Links />
+    //   </head>
       
-      <body>
+    //   <body>
        
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
+    //     {children}
+    //     <ScrollRestoration />
+    //     <Scripts />
+    //     <LiveReload />
+    //   </body>
     
-    </html>
+    // </html>
   );
 });
 
@@ -85,8 +103,7 @@ export default function App() {
   return (
     <Document>
      
-        <Outlet />
-     
+       
     </Document>
   );
 }

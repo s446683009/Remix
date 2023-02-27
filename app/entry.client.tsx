@@ -37,7 +37,8 @@ function ClientCacheProvider({ children }: ClientCacheProviderProps) {
 const hydrate = () => {
   startTransition(() => {
     hydrateRoot(
-      document,
+//      document,
+      document.getElementById('root')!,
       <ClientCacheProvider>
         <ThemeProvider theme={theme}>
         <StyledEngineProvider injectFirst>

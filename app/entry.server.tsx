@@ -11,7 +11,8 @@ import createEmotionCache from './components/createEmotionCache';
 import getTheme from './utils/theme';
 import { ThemeProvider } from '@mui/material/styles';
 import { StyledEngineProvider } from '@mui/material/styles';
-
+import { renderHeadToString } from 'remix-island';
+import { Head } from './root';
 const ABORT_DELAY = 5000;
 const theme=getTheme('');
 const handleRequest = (
@@ -113,14 +114,18 @@ const handleBrowserRequest = (
       <MuiRemixServer cache={cache} remixContext={remixContext} url={request.url} />,
       {
         onShellReady: () => {
+          const head = renderHeadToString({ request, remixContext, Head });
           const reactBody = new PassThrough();
           const emotionServer = createEmotionServer(cache);
-
+          
    
           const bodyWithStyles = emotionServer.renderStylesToNodeStream();
           reactBody.pipe(bodyWithStyles);
 
           responseHeaders.set("Content-Type", "text/html");
+          reactBody.write(
+            `<!DOCTYPE html><html><head>${head}</head><body><div id="root">`,
+);
 
           resolve(
             new Response(bodyWithStyles, {
@@ -130,6 +135,7 @@ const handleBrowserRequest = (
           );
 
           pipe(reactBody);
+          reactBody.write(`</div></body></html>`);
         },
         onShellError: (error: unknown) => {
           reject(error);
