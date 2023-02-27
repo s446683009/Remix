@@ -68,13 +68,19 @@ const handleBotRequest = (
         <MuiRemixServer cache={cache} remixContext={remixContext} url={request.url} />,
       {
         onAllReady: () => {
+          const head = renderHeadToString({ request, remixContext, Head });
           const reactBody = new PassThrough();
           const emotionServer = createEmotionServer(cache);
 
           const bodyWithStyles = emotionServer.renderStylesToNodeStream();
           reactBody.pipe(bodyWithStyles);
 
+         
+
           responseHeaders.set("Content-Type", "text/html");
+          reactBody.write(
+            `<!DOCTYPE html><html><head>${head}</head><body><div id="root">`,
+);
 
           resolve(
             new Response(bodyWithStyles, {
@@ -84,6 +90,7 @@ const handleBotRequest = (
           );
 
           pipe(reactBody);
+          reactBody.write(`</div></body></html>`);
         },
         onShellError: (error: unknown) => {
           reject(error);
