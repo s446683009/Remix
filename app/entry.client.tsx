@@ -42,12 +42,14 @@ const hydrate = () => {
         <ThemeProvider theme={theme}>
         <StyledEngineProvider injectFirst>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-         
+          
           <RemixBrowser />
           </StyledEngineProvider>
          
         </ThemeProvider>
-      </ClientCacheProvider>,
+        </ClientCacheProvider>
+      ,
+      
     );
   });
 };

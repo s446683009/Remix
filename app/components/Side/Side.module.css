@@ -37,7 +37,7 @@
 }
 
 .sideUserName{
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.6;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -46,6 +46,7 @@
 .sideIntroduct{
     color: inherit;
     font-size: 13px;
+    color: #777474;
     line-height: 1.6;
     overflow: hidden;
     text-overflow: ellipsis;

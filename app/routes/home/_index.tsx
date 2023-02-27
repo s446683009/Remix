@@ -1,10 +1,10 @@
-"use client";
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Grid,Paper,Typography} from '@mui/material'
 import styled from './home.module.css'
 import ShowCard from '../../components/ShowCard'
-import PaySvg from '../../public/svg/Pay.svg';
+
 
 var arr=[
   {
@@ -28,24 +28,32 @@ var arr=[
   }
 ]
 
+
+
+
 function HomePage() {
+
+  
   return (
     <>
-    <Grid container spacing={2} sx={{mt:1}}>
+    <Grid container  spacing={2} sx={{mt:1,flexWrap:"wrap"}} >
       {
         arr.map((t,i)=>{
-        return <Grid key={i} item lg={3} md={3} sm={1}>
+        return <Grid sx={{flex:1}} key={i} item  lg={3} md={6} sm={1}  >
           <ShowCard mainText={t.mainText} subTitle={t.subTitle} pic={<img  alt={"图片"} width={90} height={90} src={t.svg} />}></ShowCard>
         </Grid>
       })
 
       }
     </Grid>
+    
 
 
     </>
   )
 }
+
+
 
 HomePage.propTypes = {}
 

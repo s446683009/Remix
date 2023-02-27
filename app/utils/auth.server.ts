@@ -10,26 +10,47 @@ export const sessionStorage = createCookieSessionStorage({
     sameSite: "lax",
     secrets: ["s3cret"], // This should be an env variable
     secure: process.env.NODE_ENV === "production",
+    
   },
 });
 
-export const auth = new Authenticator<string>(sessionStorage);
+export const auth = new Authenticator<string>(sessionStorage,{
+  sessionErrorKey:"loginError",
+  sessionKey:"Token",
+  throwOnError:true
+});
 
 auth.use(
   new FormStrategy(async ({ form }) => {
-    const email = form.get("user");
+    const account = form.get("account");
     const password = form.get("password");
-    console.log(email)
+
     // replace the code below with your own authentication logic
     if (!password) throw new AuthorizationError("Password is required");
  
-    if (!email) throw new AuthorizationError("Email is required");
+    if (!account) throw new AuthorizationError("account is required");
 
-    var user=await login({
-      userName:email as string,
+    var result=await login({
+      account:account as string,
       password:password as string
     });
+    if(result.code==0){
+           return result.data;
+    }else{
+        
+          throw new AuthorizationError(result.message);
+    }
+    
 
-    return email as string;
-  })
+
+
+  }),
+  "user-pass"
 );
+
+
+export async function getToken(request:Request){
+  
+ var token=await auth.isAuthenticated(request);
+  return token;
+}

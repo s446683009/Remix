@@ -33,12 +33,13 @@ export const links = () => {
 const Document = withEmotionCache(({ children, title }: DocumentProps, emotionCache) => {
   const clientStyleData = React.useContext(ClientStyleContext);
 
-  // Only executed on client
+  //Only executed on client
   useEnhancedEffect(() => {
     // re-link sheet container
     emotionCache.sheet.container = document.head;
     // re-inject tags
     const tags = emotionCache.sheet.tags;
+  
     emotionCache.sheet.flush();
     tags.forEach((tag) => {
       // eslint-disable-next-line no-underscore-dangle
@@ -55,19 +56,19 @@ const Document = withEmotionCache(({ children, title }: DocumentProps, emotionCa
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="theme-color" content={theme.palette.primary.main} />
-        <meta name="emotion-insertion-point" content="emotion-insertion-point" />
+       
         {title ? <title>{title}</title> : null}
         <Meta />
-       
+      
         {/* <l
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         /> */}
-     
+        <Links />
       </head>
       
       <body>
-        <Links />
+       
         {children}
         <ScrollRestoration />
         <Scripts />

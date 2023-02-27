@@ -8,33 +8,33 @@ import {Box,TextField,FormControl,InputLabel,OutlinedInput,InputAdornment,
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-function LoginForm({size='normal',loginFun}:{size?:String,loginFun?:Function}) { 
+function LoginForm({size='normal',loginFun,errorMessage}:{size?:String,loginFun?:Function,errorMessage:string|undefined}) { 
   const [userName,setUserName]=useState('');
   const [password,setPassword]=useState('');
   const [remember,setRemember]=useState(false);
-  const [errorMessage,setErrorMessage]=useState('');
+  
   const [showPsw,setshowPsw]=useState(false);
 
-  const login=useCallback(()=>{
-    setErrorMessage('')
+//   const login=useCallback(()=>{
+//     setErrorMessage('')
 
-    if(!!!userName){
-      setErrorMessage('请输入用户名')
-      return
-    }
-    if(!!!password){
-      setErrorMessage('请输入密码')
-      return
-    }
-    loginFun&&loginFun({
-      userName,
-      password,
-      remember,
-      setErrorMessage
-    })
+//     if(!!!userName){
+//       setErrorMessage('请输入用户名')
+//       return
+//     }
+//     if(!!!password){
+//       setErrorMessage('请输入密码')
+//       return
+//     }
+//     loginFun&&loginFun({
+//       userName,
+//       password,
+//       remember,
+//       setErrorMessage
+//     })
 
 
-},[userName,password, remember]);
+// },[userName,password, remember]);
 
   return (
     <div className={styled.loginForm}>
@@ -45,7 +45,7 @@ function LoginForm({size='normal',loginFun}:{size?:String,loginFun?:Function}) {
         
             <Box>
             <TextField
-              error={!!errorMessage}
+             
               margin="normal"
               required
               fullWidth
@@ -63,7 +63,7 @@ function LoginForm({size='normal',loginFun}:{size?:String,loginFun?:Function}) {
             <FormControl sx={{ width: '100%',mt:3,mb:1}} variant="outlined"  required={true}>
               <InputLabel  htmlFor="outlined-adornment-password" >密码</InputLabel>
               <OutlinedInput
-               error={!!errorMessage}
+             
                 id="outlined-adornment-password"
                 type={showPsw?'text' : 'password'}
                 label="Required"
@@ -111,7 +111,7 @@ function LoginForm({size='normal',loginFun}:{size?:String,loginFun?:Function}) {
               variant="contained"
               sx={{ mt: 3, mb: 2,fontSize:'1.1rem',color:'primary.text'}}
               size="large"
-              onClick={login}
+             
             >
               登录
             </Button>

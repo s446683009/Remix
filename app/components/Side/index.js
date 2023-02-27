@@ -5,10 +5,10 @@ import {useState} from 'react'
 
 import styled from './Side.module.css'
 import Menu from '../Menu/index'
-import { style } from '@mui/system'
 
 
-function Side({model="full",setModel}) {
+
+function Side({model="full",setModel,user}) {
    const theme = useTheme();
    const matches = useMediaQuery(theme.breakpoints.down('sm'));
    const isSimple=model=='simple';
@@ -70,12 +70,12 @@ function Side({model="full",setModel}) {
             </div> 
             <div className={styled.sideUserWrap}>
                 <div className={styled.userContent}>
-                    <Avatar src='https://avatars.githubusercontent.com/u/37138998?s=40&v=4'>
+                    <Avatar src={user.avatar}>
 
                     </Avatar>
                     <Box className={styled.userInfo} sx={{ ml: 2, color:'text.primary'}}>
-                        <p className={styled.sideUserName} >SoloTravelling</p>
-                        <p className={styled.sideIntroduct}>s446683009</p>
+                        <p className={styled.sideUserName} >{user.account}</p>
+                        <p className={styled.sideIntroduct}>{user.mobile??user.email}</p>
                     </Box>
 
 
