@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import {Grid,Paper,Typography} from '@mui/material'
 import styled from './home.module.css'
 import ShowCard from '../../components/ShowCard'
-
+import BookDetail from '../../components/Book/Detail'
 
 var arr=[
   {
@@ -46,7 +46,7 @@ function HomePage() {
 
       }
     </Grid>
-    
+    <BookDetail></BookDetail>
 
 
     </>

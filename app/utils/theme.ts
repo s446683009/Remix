@@ -61,7 +61,7 @@ const themeObj={[THEME_TEMPLATE_KEY.INDIGO]: {
             root: {
               // Some CSS
            
-              fontSize:'.85rem'
+              //fontSize:'.85rem'
             },
           },
         },
@@ -88,7 +88,20 @@ const themeObj={[THEME_TEMPLATE_KEY.INDIGO]: {
            
             
            
+          }
+        },
+        MuiListItemText:{
+          styleOverrides: {
+            // Name of the slot
+            root: {
+             
+         
+            },
+            primary:{
+              fontSize:'.85rem'
+            }
           },
+         
         },
         MuiInputLabel:{
           styleOverrides:{
@@ -108,6 +121,14 @@ const themeObj={[THEME_TEMPLATE_KEY.INDIGO]: {
           }
 
 
+        },
+        MuiCard:{
+          styleOverrides:{
+            root:{
+              boxShadow:'rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px'
+            }
+         
+          },
         },
         MuiOutlinedInput:{
           styleOverrides:{

@@ -1,5 +1,5 @@
 import { PassThrough } from "stream";
-
+import React from 'react'
 import type { EntryContext } from "@remix-run/node";
 import { Response } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";

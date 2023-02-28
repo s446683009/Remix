@@ -11,14 +11,13 @@ import { useLoaderData } from '@remix-run/react'
 
 
 export const loader=async({ request }: LoaderArgs)=>{
-    let user = await auth.isAuthenticated(request, {
+    let token = await auth.isAuthenticated(request, {
       failureRedirect: "/login",
     });
-    var result=  getProfile({token:user});
-    return defer({
+    var result= await getProfile({token});
+    return {
       user:result
-    })
-  
+    };
   
   }
   
@@ -37,23 +36,10 @@ function HomeLayout({}) {
           <Side model={model} setModel={setModel} user={data.user}></Side>
 
           <Box className="main">
-          <React.Suspense fallback={<CircularProgress  />}>
-          <Await
-          resolve={data.user}
-          errorElement={
-            <div>Could not load reviews 😬</div>
-          }
-          >{
-            (data)=><div>{JSON.stringify(data)}</div>
             
-          
-          }
-             
-             
-         </Await>
-        
-        </React.Suspense>
-             
+               <Outlet></Outlet>
+            
+              
           </Box> 
         </Box>
 
