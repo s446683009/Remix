@@ -1,53 +1,50 @@
 # base node image
 FROM node:16-bullseye-slim as base
 
-# set for base and all layer that inherit from it
-ENV NODE_ENV production
-
-
 
 # Install all node_modules, including dev dependencies
 FROM base as deps
 
-WORKDIR /myapp
+RUN mkdir /app
+WORKDIR /app
 
 ADD package.json package-lock.json ./
-RUN npm config set registry https://registry.npm.taobao.org
 RUN npm install --production=false
 
 # Setup production node_modules
 FROM base as production-deps
 
-WORKDIR /myapp
+RUN mkdir /app
+WORKDIR /app
 
-COPY --from=deps /myapp/node_modules /myapp/node_modules
+COPY --from=deps /app/node_modules /app/node_modules
 ADD package.json package-lock.json ./
-RUN npm prune --production
+# RUN npm prune --production
 
 # Build the app
 FROM base as build
 
-WORKDIR /myapp
+RUN mkdir /app
+WORKDIR /app
 
-COPY --from=deps /myapp/node_modules /myapp/node_modules
+COPY --from=deps /app/node_modules /app/node_modules
+
 
 
 ADD . .
 RUN npm run build
 
-# run the app
-from base as production
+# Finally, build the production image with minimal footprint
+FROM base
 
-WORKDIR /myapp
+ENV NODE_ENV=production
 
-COPY --from=production-deps /myapp/node_modules /myapp/node_modules
+RUN mkdir /app
+WORKDIR /app
 
-COPY --from=build /myapp/build /myapp/build
-COPY --from=build /myapp/public /myapp/public
+COPY --from=production-deps /app/node_modules /app/node_modules
+COPY --from=build /app/build /app/build
+COPY --from=build /app/public /app/public
 ADD . .
 
-EXPOSE 3000
-
-ENV PORT 3000
-
-CMD ["npm", "start"]
+CMD ["node", "node_modules/.bin/remix-serve", "build"]

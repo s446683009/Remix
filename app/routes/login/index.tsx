@@ -28,7 +28,7 @@ type LoaderError = { message: string } | null;
 
 export const loader = async ({ request }: LoaderArgs) => {
   
-  await auth.isAuthenticated(request, { successRedirect: "/home" });
+  await auth.isAuthenticated(request, { successRedirect: "/home/dashboard" });
   const session = await sessionStorage.getSession(
     request.headers.get("Cookie")
   );

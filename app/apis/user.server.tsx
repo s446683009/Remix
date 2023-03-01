@@ -35,11 +35,7 @@ export async function login(form:LoginModel)
 
 export async function getProfile(model:BaseModel){
 
-    await new Promise((resolve)=>{
-        setTimeout(() => {
-            resolve("1")
-        }, 2000);
-    })
+
 
     var res= await fetch(`${apiUrl}/api/v1/Account/profile`,{
         method:'get',
