@@ -1,12 +1,12 @@
 
 import React,{useState} from 'react'
 import {Box, useMediaQuery, useTheme,CircularProgress,Stack } from '@mui/material'
-import Side from '../components/Side'
-import Header from '../components/Header';
+import Side from '../../components/Side'
+import Header from '../../components/Header';
 import { Outlet,Await } from '@remix-run/react';
-import {auth} from '../utils/auth.server'
+import {auth} from '../../utils/auth.server'
 import { defer, LoaderArgs } from '@remix-run/node'
-import {getProfile} from '../apis/user.server'
+import {getProfile} from '../../apis/user.server'
 import { useLoaderData } from '@remix-run/react'
 
 
