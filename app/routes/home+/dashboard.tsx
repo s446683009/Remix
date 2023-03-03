@@ -2,10 +2,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Grid,Paper,Typography} from '@mui/material'
-import styled from './home.module.css'
-import ShowCard from '../../components/ShowCard'
 import BookDetail from '../../components/Book/Detail'
-
+import ShowCard from '../../components/ShowCard'
+import css from './dashboard.css'
 var arr=[
   {
     mainText:'784K',
@@ -28,6 +27,14 @@ var arr=[
   }
 ]
 
+export const links=()=>{
+  return [
+    {
+      rel: "stylesheet",
+      href: css,
+    }
+  ];
+}
 
 
 

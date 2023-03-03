@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Slider from "react-slick";
-import {Card,CardHeader,IconButton,CardContent,Paper,Avatar,Box,Stack} from '@mui/material'
-
+import {Card,CardHeader,IconButton,CardContent,Paper,Avatar,Box,Stack,useTheme, useMediaQuery} from '@mui/material'
+import styled from './index.module.css'
 
 var arr=[
     {
@@ -63,7 +63,8 @@ var arr=[
 ]
 
 function Detail() {
-
+    
+  
     const settings = {
         dots: false,
         infinite: true,
@@ -86,7 +87,7 @@ function Detail() {
                     {
                         arr.map(t=>(
                             <Paper elevation={0} key={t.id} sx={{px:2}} >
-                                <Box sx={{background:'#f4f6f8',borderRadius:'20px',padding:'5px'}}>
+                                <Box sx={{background:'#f4f6f8',borderRadius:'20px',padding:'10px'}}>
                                 <CardHeader
                                 avatar={<Avatar  src="https://avatars.githubusercontent.com/u/37138998?s=40&v=4" ></Avatar>}
                                 title={t.userName}
@@ -97,8 +98,8 @@ function Detail() {
                                 <Stack direction={"row"} justifyContent="space-around" sx={{px:3,color:'text.secondary',fontSize:'.85rem'}}>
                                     <Box><i className='iconfont icon-tongzhi1'></i>{t.room}</Box> <Box><i className='iconfont icon-dianzan'></i> {t.person}</Box>
                                 </Stack>
-                                <Box sx={{borderRadius:'10px',my:2}}>
-                                   <img width="100%" src="https://minimals.cc/assets/images/rooms/room_1.jpg" />    
+                                <Box sx={{borderRadius:'10px',mt:2}}>
+                                   <img className={styled.roomImg} width="100%" src="https://minimals.cc/assets/images/rooms/room_3.jpg" />    
                                 </Box>
                                 </Box>
                             </Paper>

@@ -2,9 +2,8 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Box,List,ListItem,ListItemIcon,ListItemText,Collapse} from '@mui/material';
 import styled from './Menu.module.css';
-
-
 import menus from '../../utils/getMenu'
+import { useNavigate } from '@remix-run/react';
 
 const slectMenuSX={
     color:'primary.scr',
@@ -27,7 +26,7 @@ const mapList=(menu,options,leavel=1)=>{
         const expendClass=bl?styled.expendClass:styled.closeClass;
         return (
             <div key={t.menuId}>
-                <ListItem  className={`${itemClass} ${selectClass}`}  sx={ssx} button onClick={onMenuClick.bind(null,t.menuId,t.hasChildren)}>
+                <ListItem  className={`${itemClass} ${selectClass}`}  sx={ssx} button onClick={onMenuClick.bind(null,t)}>
 
                     <ListItemIcon className={styled.menuIcon} sx={{mr:1}}>
                     <i className={`iconfont ${icon} ${styled.iconfont} `} />
@@ -55,7 +54,7 @@ const mapList=(menu,options,leavel=1)=>{
 function CustomMenu({simapleMenu}) {
     const [selectMenuId, setselectMenuId] = useState('')
     const [expendMenu, setExpendMenu] = useState(['2','5'])
- 
+    const navgate=useNavigate();
     const handleOpen=useCallback((menuKey,e)=>{
             setExpendMenu((menu)=>{
             let index=menu.findIndex(t=>t===menuKey);
@@ -73,11 +72,14 @@ function CustomMenu({simapleMenu}) {
         
     },[])
     const handClick=useCallback(
-        (menuId,hasChildren,e) => {
-            if(hasChildren){
-                handleOpen(menuId,e);
-            }
+        ({menuId,hasChildren,path}) => {
+          
             setselectMenuId(menuId)
+            if(hasChildren){
+                handleOpen(menuId);
+            }else{
+                navgate(path);
+            }
             
         },
         [handleOpen]

@@ -15,7 +15,7 @@ export async function action({ request}: ActionArgs) {
   
 
   return await authenticator.authenticate("user-pass", request, {
-    successRedirect:formData.get("redirectTo")?.toString()??'/home',
+    successRedirect:formData.get("redirectTo")?.toString()??'/home/dashboard',
     failureRedirect: "/login",
     context:{formData}
   });

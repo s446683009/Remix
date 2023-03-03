@@ -29,7 +29,7 @@ const loginOut=useCallback(()=>{
       <div className={styled.titleWrap}>
         <div>
          <Typography className={styled.title} component={"h5"}>{user.account}</Typography>
-         <Typography className={styled.subTitle}>{user.mobile??user.email}</Typography>
+         <Typography  className={styled.subTitle}>{user.mobile??user.email}</Typography>
         </div>
     
       </div>

@@ -4,6 +4,7 @@ const menus=[
         menuIcon:'',
         menuName:'首页',
         hasChildren:false,
+        path:'/home/dashboard'
     },
     {
         menuId:'2',
@@ -14,8 +15,9 @@ const menus=[
             {
                 menuId:'3',
                 menuIcon:'',
-                menuName:'个人信息',
+                menuName:'用户列表',
                 hasChildren:false,
+                path:'/home/user',
                 children:[]
             },
             {
