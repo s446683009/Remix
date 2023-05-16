@@ -35,8 +35,8 @@ const themeObj={[THEME_TEMPLATE_KEY.INDIGO]: {
           side:'#fff'
         },
         text:{
-          main:'#333',
-          primary:'#333',//文本颜色'#212b36',
+          main:'rgb(33, 43, 54)',
+          primary:'rgb(33, 43, 54)',//文本颜色'#212b36',
           secondary:'rgb(99, 115, 129)',
           logo:'#fff'
         },
@@ -48,23 +48,31 @@ const themeObj={[THEME_TEMPLATE_KEY.INDIGO]: {
         }
       },
       components:{
-        MuiCheckbox:{
+        MuiPaper:{
           styleOverrides:{
             root:{
-              color:'#212b36'
+             
             }
           }
         },
-        MuiTypography: {
-          styleOverrides: {
-            // Name of the slot
-            root: {
-              // Some CSS
-           
-              //fontSize:'.85rem'
-            },
-          },
+        MuiInputBase:{
+          styleOverrides:{
+            root:{
+              'div&:hover .MuiOutlinedInput-notchedOutline':{
+                borderColor:'#2196f3'
+              }
+          }
+         
+          }
         },
+        MuiCheckbox:{
+          styleOverrides:{
+            root:{
+              color:'#2196f3'
+            }
+          }
+        },
+    
         MuiListItemIcon:{
           styleOverrides: {
             // Name of the slot

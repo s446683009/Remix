@@ -11,6 +11,14 @@ declare type BaseModel={
     token:string
 }
 
+declare type UserSearchModel={
+    token:string,
+    userName:string|undefined,
+    companyId:Number,
+    page:Number,
+    rows:Number
+}
+
 export async function login(form:LoginModel)
 {
 
@@ -35,7 +43,7 @@ export async function login(form:LoginModel)
 
 export async function getProfile(model:BaseModel){
 
-
+ 
 
     var res= await fetch(`${apiUrl}/api/v1/Account/profile`,{
         method:'get',
@@ -54,3 +62,30 @@ export async function getProfile(model:BaseModel){
     }
 
 }
+
+export async function getUsers( model:UserSearchModel){
+    // await new Promise(function(resolve){
+    //     setTimeout(() => {
+    //         resolve(1);
+    //     }, 2000);
+    // });
+
+    var res= await fetch(`${apiUrl}/api/v1/Account/users`,{
+        method:'post',
+        headers:{
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${model.token}`,
+        },
+       body:JSON.stringify(model)
+    });
+
+    var result= await res.json();
+    if(result.code==0){
+        return result.data;
+    }
+    else{
+        throw new Error("user error");
+    }
+
+}
+
