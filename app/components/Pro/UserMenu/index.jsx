@@ -34,7 +34,7 @@ const loginOut=useCallback(()=>{
     
       </div>
      
-      <List>
+      <List sx={{pt:0}}>
           <Divider light  sx={{my:1}} />
         <ListItem className={styled.userItem} button>
           <ListItemText sx={textSx} primary={"我的主页"}></ListItemText>

@@ -3,7 +3,7 @@ import React,{useState} from 'react'
 import {Box, useMediaQuery, useTheme,CircularProgress,Stack } from '@mui/material'
 import Side from '../../components/Side'
 import Header from '../../components/Header';
-import { Outlet,Await } from '@remix-run/react';
+import { Outlet,Await, useCatch } from '@remix-run/react';
 import {auth} from '../../utils/auth.server'
 import { defer, LoaderArgs } from '@remix-run/node'
 import {getProfile} from '../../apis/user.server'
@@ -15,6 +15,7 @@ export const loader=async({ request }: LoaderArgs)=>{
       failureRedirect: "/login",
     });
     var result= await getProfile({token});
+
     return {
       user:result
     };
@@ -50,6 +51,7 @@ function HomeLayout({}) {
 
 export function ErrorBoundary({ error }:{error:any}) {
     const [model, setModel] = useState("full")
+    const caught = useCatch();
     return (
         <React.Fragment>
         <Header model={model}  setModel={setModel} user={{}}></Header>
@@ -58,7 +60,7 @@ export function ErrorBoundary({ error }:{error:any}) {
           <Side model={model} setModel={setModel} user={{}}></Side>
         
           <Box className="main">
-              <div>{error.message}</div>
+              {caught.data.message}
           </Box> 
         </Box>
 

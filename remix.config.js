@@ -11,8 +11,9 @@ module.exports = {
   // devServerPort: 8002,
   future: {
     v2_routeConvention: true,
-    unstable_cssModules: true,
-    unstable_postcss: true,
+
+    postcss: true,
+    v2_errorBoundary: true, 
   },
   ignoredRouteFiles: ["**/*.css", "**/*.test.{js,jsx,ts,tsx}"],
   routes: async defineRoutes => {
