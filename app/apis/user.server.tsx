@@ -52,7 +52,7 @@ export async function getProfile(model:BaseModel){
             "Authorization": `Bearer ${model.token}`,
         }
     });
-    
+    console.log(res)
     var result= await res.json();
     if(result.code==0){
         return result.data;

@@ -15,7 +15,7 @@ export const loader=async({ request }: LoaderArgs)=>{
       failureRedirect: "/login",
     });
     var result= await getProfile({token});
-
+  
     return {
       user:result
     };
@@ -51,7 +51,7 @@ function HomeLayout({}) {
 
 export function ErrorBoundary({ error }:{error:any}) {
     const [model, setModel] = useState("full")
-    const caught = useCatch();
+  
     return (
         <React.Fragment>
         <Header model={model}  setModel={setModel} user={{}}></Header>
@@ -60,7 +60,7 @@ export function ErrorBoundary({ error }:{error:any}) {
           <Side model={model} setModel={setModel} user={{}}></Side>
         
           <Box className="main">
-              {caught.data.message}
+              {error.data.message}
           </Box> 
         </Box>
 

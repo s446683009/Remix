@@ -68,7 +68,7 @@ export default function UserList() {
                       deferData.list.map(t=>(
                         <TableRow key={t.userId}>
                         <TableCell ><CardHeader sx={{padding:0}} avatar={<Avatar src={t.avatar}></Avatar>} title={t.account}/></TableCell>
-                        <TableCell>{t.email}</TableCell>
+                        <TableCell>{t.mobile}</TableCell>
                         <TableCell>{t.email}</TableCell>
                         <TableCell>{t.createDate}</TableCell>
                         </TableRow>
@@ -89,7 +89,7 @@ export default function UserList() {
           count={deferData.total}
           rowsPerPage={deferData.rows}
           page={deferData.page-1}
-          // onPageChange={handleChangePage}
+          //onPageChange={handleChangePage}
           // onRowsPerPageChange={handleChangeRowsPerPage}
         />
         {/* <div>
